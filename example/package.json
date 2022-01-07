@@ -1,6 +1,6 @@
 {
-  "name": "react-native-lazerpay-react-native-example",
-  "description": "Example app for react-native-lazerpay-react-native",
+  "name": "lazerpay-react-native-example",
+  "description": "Example app for lazerpay-react-native",
   "version": "0.0.1",
   "private": true,
   "scripts": {
