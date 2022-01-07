@@ -32,7 +32,7 @@ export default function App() {
         />
       </View>
       <TouchableOpacity onPress={() => setopenSDK(true)}>
-        Initiate Payment
+        <Text> Initiate Payment</Text>
       </TouchableOpacity>
     </View>
   );

@@ -1,5 +1,5 @@
 package com.example.reactnativelazerpayreactnative;
-
+import com.reactnativecommunity.webview.RNCWebViewPackage;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -26,7 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for LazerpayReactNativeExample:
           // packages.add(new MyReactNativePackage());
-          
+packages.add(new RNCWebViewPackage()),
           return packages;
         }
 

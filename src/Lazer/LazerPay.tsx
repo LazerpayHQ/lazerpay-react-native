@@ -5,6 +5,7 @@ import SDKWrapper from '../components/SDKWrapper';
 import { WebView } from 'react-native-webview';
 import { PAYMENT_CLOSE, PAYMENT_ERROR, PAYMENT_SUCCESS } from '../constants';
 import Loader from '../components/Loader';
+import { Text } from 'react-native';
 
 const LazerPay = (props: PaymentProps) => {
   const [checkPropsValue, setCheckProps] = useState(false);
@@ -131,7 +132,7 @@ const LazerPay = (props: PaymentProps) => {
           //    renderError={(error) => <ErrorFallback {...{ onClose, error }} />}
         />
       ) : (
-        'Something Went Wrong. Try again'
+        <Text>'Something Went Wrong. Try again'</Text>
       )}
     </SDKWrapper>
   );
