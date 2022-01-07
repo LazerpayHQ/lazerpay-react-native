@@ -6,7 +6,7 @@ export type SDKWrapperProps = {
 
 export type PaymentProps = {
   publicKey: string;
-  customer_name?: string;
+  customer_fullname?: string;
   customer_email?: string;
   currency: string;
   amount: number;

@@ -6,12 +6,16 @@ import { WebView } from 'react-native-webview';
 import { PAYMENT_CLOSE, PAYMENT_ERROR, PAYMENT_SUCCESS } from '../constants';
 import Loader from '../components/Loader';
 import { Text } from 'react-native';
+import ErrorFallback from '../components/Error';
 
 const LazerPay = (props: PaymentProps) => {
   const [checkPropsValue, setCheckProps] = useState(false);
+  let customerName: string = '';
+  let customerEmail: string = '';
+
   const {
     publicKey,
-    customer_name,
+    customer_fullname,
     customer_email,
     currency,
     amount,
@@ -22,14 +26,16 @@ const LazerPay = (props: PaymentProps) => {
   } = props;
   useEffect(() => {
     const checkProps = () => {
+      if (customer_email && customer_fullname == undefined) {
+        customerName = '';
+        customerEmail = '';
+      }
       const validAmount =
         amount && !isNaN(+amount) && typeof +amount === 'number';
       let validProps =
         validAmount &&
         !!currency &&
         !!publicKey &&
-        !!customer_name &&
-        !!customer_email &&
         onClose !== undefined &&
         onSuccess !== undefined &&
         onError !== undefined;
@@ -54,7 +60,7 @@ const LazerPay = (props: PaymentProps) => {
     }
   }, [
     publicKey,
-    customer_name,
+    customer_fullname,
     customer_email,
     currency,
     amount,
@@ -82,8 +88,8 @@ const LazerPay = (props: PaymentProps) => {
               window.onload = payWithLazerpay;
               function payWithLazerpay(){
                 LazerCheckout({
-                    name: '${customer_name}',
-                    email: '${customer_email}',
+                    name: '${customerName}',
+                    email: '${customerEmail}',
                     amount: '${amount}',
                     key: '${publicKey}',
                     currency: '${currency || 'USD'}',
@@ -107,6 +113,7 @@ const LazerPay = (props: PaymentProps) => {
       `;
 
   const messageReceived = ({ nativeEvent: { data } }: any) => {
+    console.log(data, 'data');
     const response = JSON.parse(data);
     switch (response.event) {
       case PAYMENT_CLOSE:
@@ -123,13 +130,16 @@ const LazerPay = (props: PaymentProps) => {
   };
   return (
     <SDKWrapper visible={openSDK} onRequestClose={onClose}>
+      {console.log(openSDK, 'open sdk')}
       {checkPropsValue ? (
         <WebView
           source={{ html: Lazerpaycontent }}
           onMessage={messageReceived}
+          cacheEnabled={false}
+          cacheMode={'LOAD_NO_CACHE'}
           startInLoadingState={true}
           renderLoading={() => <Loader />}
-          //    renderError={(error) => <ErrorFallback {...{ onClose, error }} />}
+          renderError={(error) => <ErrorFallback {...{ onClose, error }} />}
         />
       ) : (
         <Text>'Something Went Wrong. Try again'</Text>
