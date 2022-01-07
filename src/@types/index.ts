@@ -1,4 +1,4 @@
-export type SDKWrapperPrps = {
+export type SDKWrapperProps = {
   visible: boolean;
   onRequestClose: () => void;
   children: any;
@@ -6,8 +6,8 @@ export type SDKWrapperPrps = {
 
 export type PaymentProps = {
   publicKey: string;
-  name?: string;
-  email?: string;
+  customer_name?: string;
+  customer_email?: string;
   currency: string;
   amount: number;
   onError: (event: string) => void;

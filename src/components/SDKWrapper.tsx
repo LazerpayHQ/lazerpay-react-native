@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Modal, StyleSheet, Platform } from 'react-native';
-import type { SDKWrapperPrps } from '../@types';
+import type { SDKWrapperProps } from '../@types';
 
-const SDKWrapper = ({ visible, onRequestClose, children }: SDKWrapperPrps) => {
+const SDKWrapper = ({ visible, onRequestClose, children }: SDKWrapperProps) => {
   return (
     <Modal
       animationType="slide"
