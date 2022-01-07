@@ -34,13 +34,6 @@ const Payment = (props: PaymentProps) => {
         onError !== undefined;
 
       if (validProps) {
-        const data = {
-          publicKey,
-          customer_name,
-          customer_email,
-          currency,
-          amount,
-        };
         setCheckProps(true);
       } else {
         console.error(
