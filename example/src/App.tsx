@@ -21,10 +21,11 @@ export default function App() {
             onSuccess: (data) => {
               console.log(data, 'success data');
             },
-            onClose: () => setopenSDK(false),
+
             onError: (data) => {
               console.error(data);
             },
+            onClose: () => setopenSDK(false),
             openSDK,
           }}
         />

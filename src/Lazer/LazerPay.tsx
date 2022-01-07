@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { isRequired } from '../utils';
+import { isRequired } from '../helpers';
 import type { PaymentProps } from '../@types';
 import SDKWrapper from '../components/SDKWrapper';
 import { WebView } from 'react-native-webview';
@@ -115,6 +115,7 @@ const LazerPay = (props: PaymentProps) => {
   const messageReceived = ({ nativeEvent: { data } }: any) => {
     console.log(data, 'data');
     const response = JSON.parse(data);
+    console.log(response, 'response');
     switch (response.event) {
       case PAYMENT_CLOSE:
         onClose();

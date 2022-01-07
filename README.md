@@ -27,9 +27,13 @@ const InitiatePayment = () => {
           customer_email: 'CUSTOMER EMAIL',
           currency: 'CURRENCY', // USD, NGN, AED, GBP, EUR
           amount: 10, // amount as a number
-          onSuccess: (response) => {},
+          onSuccess: (response) => {
+            // handle response here
+          },
           onClose: () => setopenSDK(false),
-          onError: (response) => {},
+          onError: (response) => {
+            // handle responsne here
+          },
           openSDK,
         }}
       />
