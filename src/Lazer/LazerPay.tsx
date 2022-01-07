@@ -6,7 +6,7 @@ import { WebView } from 'react-native-webview';
 import { PAYMENT_CLOSE, PAYMENT_ERROR, PAYMENT_SUCCESS } from '../constants';
 import Loader from '../components/Loader';
 
-const Payment = (props: PaymentProps) => {
+const LazerPay = (props: PaymentProps) => {
   const [checkPropsValue, setCheckProps] = useState(false);
   const {
     publicKey,
@@ -137,4 +137,4 @@ const Payment = (props: PaymentProps) => {
   );
 };
 
-export default Payment;
+export default LazerPay;

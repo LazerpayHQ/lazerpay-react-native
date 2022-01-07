@@ -1,18 +1,39 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'lazerpay-react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { LazerPay } from 'lazerpay-react-native';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  const [openSDK, setopenSDK] = useState(false);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Lazerpay Demo</Text>
+      <View>
+        <LazerPay
+          {...{
+            publicKey:
+              'pk_live_0N24k7lsrr7NGfrDQpIjPGy9z61LkXjUqxX3r99XblXHemwMht',
+            customer_name: 'Njoku Emmanuel',
+            customer_email: 'kalunjoku123@gmail.com',
+            currency: 'USD',
+            amount: 10,
+            onSuccess: (data) => {
+              console.log(data);
+            },
+            onClose: () => {
+              console.log('Closed');
+            },
+            onError: (data) => {
+              console.error(data);
+            },
+            openSDK,
+          }}
+        />
+      </View>
+      <TouchableOpacity onPress={() => setopenSDK(true)}>
+        Initiate Payment
+      </TouchableOpacity>
     </View>
   );
 }
