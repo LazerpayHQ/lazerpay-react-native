@@ -14,12 +14,12 @@ export default function App() {
           {...{
             publicKey:
               'pk_live_0N24k7lsrr7NGfrDQpIjPGy9z61LkXjUqxX3r99XblXHemwMht',
-            // customername: 'Njoku Emmanuel',
-            // customeremail: 'kalunjoku123@gmail.com',
+            customer_fullname: 'Njoku Emmanuel',
+            customer_email: 'kalunjoku123@gmail.com',
             currency: 'USD',
             amount: 10,
             onSuccess: (data) => {
-              console.log(data);
+              console.log(data, 'success data');
             },
             onClose: () => setopenSDK(false),
             onError: (data) => {

@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Image,
-  StyleSheet,
-  Text,
-  Platform,
-  TouchableOpacity,
-} from 'react-native';
+import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 const ErrorFallback = ({
   onClose,

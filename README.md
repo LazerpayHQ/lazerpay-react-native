@@ -95,6 +95,38 @@ This is called when a transaction fails. It returns a response.
 **() => { Void }: Required**
 This is called when a user clicks on the close button.
 
+The Transaction JSON returned for successful events
+
+```ts
+{
+  "event": "successful",
+  "data": {
+    "id": "12896b32-0d7d-4744-bc15-5960af40d519",
+    "reference": "aa6KlHy88D",
+    "senderAddress": "0x0B4d358D349809037003F96A3593ff9015E89efA",
+    "recipientAddress": "0x785F44E779cfEeDeBf7aA7CFde19DaA3312fd19e",
+    "actualAmount": 10,
+    "amountPaid": 10,
+    "fiatAmount": 10,
+    "coin": "BUSD",
+    "currency": "USD",
+    "hash": "0x3332d7b046d53e90dc0337c715252f210386c2a471c5025c953a0b1d9bc90593",
+    "blockNumber": 14160827,
+    "type": "received",
+    "status": "confirmed",
+    "network": "mainnet",
+    "blockchain": "Binance Smart Chain",
+    "customer": {
+      "id": "b847dbbd-e5a4-4afc-ba26-b292707dc391",
+      "customerName": "Njoku Emmanuel",
+      "customerEmail": "kalunjoku123@gmail.com",
+      "customerPhone": null,
+      "network": "mainnet"
+    }
+  }
+}
+```
+
 ## Configuration Options for Making Payments
 
 ### <a name="openSDK"></a> `openSendSDK`
