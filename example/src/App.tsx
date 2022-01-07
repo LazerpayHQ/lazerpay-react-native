@@ -21,9 +21,7 @@ export default function App() {
             onSuccess: (data) => {
               console.log(data);
             },
-            onClose: () => {
-              console.log('Closed');
-            },
+            onClose: () => setopenSDK(false),
             onError: (data) => {
               console.error(data);
             },
