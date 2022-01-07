@@ -1,5 +1,5 @@
 {
-  "name": "react-native-lazerpay-react-native",
+  "name": "lazerpay-react-native",
   "version": "0.1.0",
   "description": "Lazerpay Official react-native sdk",
   "main": "lib/commonjs/index",
@@ -36,13 +36,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/njokuScript/react-native-lazerpay-react-native",
+  "repository": "https://github.com/LazerPay-Finance/lazerpay-react-native",
   "author": "Njoku Emmanuel <kalunjoku123@gmail.com> (https://github.com/njokuScript)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/njokuScript/react-native-lazerpay-react-native/issues"
+    "url": "https://github.com/LazerPay-Finance/lazerpay-react-native/issues"
   },
-  "homepage": "https://github.com/njokuScript/react-native-lazerpay-react-native#readme",
+  "homepage": "https://github.com/LazerPay-Finance/lazerpay-react-native#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
