@@ -1,17 +1,17 @@
-# react-native-lazerpay-react-native
+# lazerpay-react-native
 
 Lazerpay Official react-native sdk
 
 ## Installation
 
 ```sh
-npm install react-native-lazerpay-react-native
+npm install lazerpay-react-native
 ```
 
 ## Usage
 
 ```js
-import { multiply } from "react-native-lazerpay-react-native";
+import { multiply } from 'lazerpay-react-native';
 
 // ...
 
