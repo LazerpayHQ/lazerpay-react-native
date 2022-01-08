@@ -14,10 +14,10 @@ export default function App() {
           {...{
             publicKey:
               'pk_live_0N24k7lsrr7NGfrDQpIjPGy9z61LkXjUqxX3r99XblXHemwMht',
-            customer_fullname: 'Njoku Emmanuel',
-            customer_email: 'kalunjoku123@gmail.com',
+            customerName: 'Njoku Emmanuel',
+            billingEmail: 'kalunjoku123@gmail.com',
             currency: 'USD',
-            amount: 10,
+            amount: 5,
             onSuccess: (data) => {
               console.log(data, 'success data');
             },

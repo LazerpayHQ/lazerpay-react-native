@@ -2,6 +2,8 @@
 
 Lazerpay Official react-native sdk
 
+Lazerpay SDK allows you accept payments easily in your react-native application
+
 ## Installation
 
 ```sh
@@ -23,8 +25,8 @@ const InitiatePayment = () => {
       <LazerPay
         {...{
           publicKey: 'PUBLIC_KEY',
-          customer_name: 'CUSTOMER NAME',
-          customer_email: 'CUSTOMER EMAIL',
+          customerName: 'CUSTOMERS FULL NAME',
+          billingEmail: 'CUSTOMER EMAIL',
           currency: 'CURRENCY', // USD, NGN, AED, GBP, EUR
           amount: 10, // amount as a number
           onSuccess: (response) => {
@@ -49,8 +51,8 @@ const InitiatePayment = () => {
 ## Configuration Options
 
 - [`publicKey`](#publicKey)
-- [`customer_name`](#customer_name)
-- [`customer_email`](#customer_email)
+- [`customerName`](#customerName)
+- [`billingEmail`](#billingEmail)
 - [`currency`](#currency)
 - [`amount`](#amount)
 - [`onSuccess`](#onSuccess)
@@ -64,12 +66,12 @@ Your public key can be found on your [dashboard](https://beta.lazerpay.finance) 
 
 ### <a name="customerName"></a> `customerName`
 
-**string: Optional**
+**string: Required**
 The name of the customer trying to make payments
 
 ### <a name="customerEmail"></a> `customerEmail`
 
-**string: Optional**
+**string: Required**
 The email of the customer trying to make payments
 
 ### <a name="currency"></a> `currency`

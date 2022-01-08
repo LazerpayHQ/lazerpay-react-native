@@ -6,17 +6,14 @@ import { WebView } from 'react-native-webview';
 import { PAYMENT_CLOSE, PAYMENT_ERROR, PAYMENT_SUCCESS } from '../constants';
 import Loader from '../components/Loader';
 import { Text } from 'react-native';
-import ErrorFallback from '../components/Error';
 
 const LazerPay = (props: PaymentProps) => {
   const [checkPropsValue, setCheckProps] = useState(false);
-  let customerName: string = '';
-  let customerEmail: string = '';
 
   const {
     publicKey,
-    customer_fullname,
-    customer_email,
+    customerName,
+    billingEmail,
     currency,
     amount,
     onError,
@@ -26,10 +23,6 @@ const LazerPay = (props: PaymentProps) => {
   } = props;
   useEffect(() => {
     const checkProps = () => {
-      if (customer_email && customer_fullname == undefined) {
-        customerName = '';
-        customerEmail = '';
-      }
       const validAmount =
         amount && !isNaN(+amount) && typeof +amount === 'number';
       let validProps =
@@ -60,8 +53,8 @@ const LazerPay = (props: PaymentProps) => {
     }
   }, [
     publicKey,
-    customer_fullname,
-    customer_email,
+    customerName,
+    billingEmail,
     currency,
     amount,
     onError,
@@ -89,7 +82,7 @@ const LazerPay = (props: PaymentProps) => {
               function payWithLazerpay(){
                 LazerCheckout({
                     name: '${customerName}',
-                    email: '${customerEmail}',
+                    email: '${billingEmail}',
                     amount: '${amount}',
                     key: '${publicKey}',
                     currency: '${currency || 'USD'}',
@@ -122,7 +115,6 @@ const LazerPay = (props: PaymentProps) => {
         break;
       case PAYMENT_SUCCESS:
         onSuccess(response);
-        onClose();
         break;
       case PAYMENT_ERROR:
         onError(response);
@@ -140,7 +132,6 @@ const LazerPay = (props: PaymentProps) => {
           cacheMode={'LOAD_NO_CACHE'}
           startInLoadingState={true}
           renderLoading={() => <Loader />}
-          renderError={(error) => <ErrorFallback {...{ onClose, error }} />}
         />
       ) : (
         <Text>'Something Went Wrong. Try again'</Text>
