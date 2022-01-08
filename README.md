@@ -1,9 +1,13 @@
 # Lazerpay Official react-native sdk
 
 Lazerpay SDK allows you accept payments easily in your react-native application
+
 <img src="https://raw.githubusercontent.com/njokuScript/screenshots/master/step-1.png" alt='screenshot of SDK' width='250px' />
+
 <img src="https://raw.githubusercontent.com/njokuScript/screenshots/master/step-2.png" alt='screenshot of SDK' width='250px' />
+
 <img src="https://raw.githubusercontent.com/njokuScript/screenshots/master/step3.png" alt='screenshot of SDK' width='250px' />
+
 <img src="https://raw.githubusercontent.com/njokuScript/screenshots/master/final.png" alt='screenshot of SDK' width='250px' />
 
 ## Installation
