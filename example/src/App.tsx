@@ -18,6 +18,8 @@ export default function App() {
             customerEmail: 'kalunjoku123@gmail.com',
             currency: 'USD',
             amount: '5',
+            businessLogo:
+              'https://pbs.twimg.com/profile_images/1463770588921618442/_jAzCZFA_400x400.jpg',
             onSuccess: (data) => {
               console.log(data, 'success data');
             },
