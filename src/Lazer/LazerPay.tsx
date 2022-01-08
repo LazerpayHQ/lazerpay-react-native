@@ -106,9 +106,8 @@ const LazerPay = (props: PaymentProps) => {
       `;
 
   const messageReceived = ({ nativeEvent: { data } }: any) => {
-    console.log(data, 'data');
     const response = JSON.parse(data);
-    console.log(response, 'response');
+
     switch (response.event) {
       case PAYMENT_CLOSE:
         onClose();
@@ -123,7 +122,6 @@ const LazerPay = (props: PaymentProps) => {
   };
   return (
     <SDKWrapper visible={openSDK} onRequestClose={onClose}>
-      {console.log(openSDK, 'open sdk')}
       {checkPropsValue ? (
         <WebView
           source={{ html: Lazerpaycontent }}
