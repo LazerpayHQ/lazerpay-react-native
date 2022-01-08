@@ -32,9 +32,10 @@
     "bootstrap": "yarn example && yarn && yarn pods"
   },
   "keywords": [
-    "react-native",
-    "ios",
-    "android"
+    "crypto",
+    "web3",
+    "fintech",
+    "blockchain"
   ],
   "repository": "https://github.com/LazerPay-Finance/lazerpay-react-native",
   "author": "Njoku Emmanuel <kalunjoku123@gmail.com> (https://github.com/njokuScript)",
