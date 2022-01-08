@@ -15,9 +15,11 @@ export default function App() {
             publicKey:
               'pk_live_0N24k7lsrr7NGfrDQpIjPGy9z61LkXjUqxX3r99XblXHemwMht',
             customerName: 'Njoku Emmanuel',
-            billingEmail: 'kalunjoku123@gmail.com',
+            customerEmail: 'kalunjoku123@gmail.com',
             currency: 'USD',
-            amount: 5,
+            amount: '5',
+            businessLogo:
+              'https://pbs.twimg.com/profile_images/1463770588921618442/_jAzCZFA_400x400.jpg',
             onSuccess: (data) => {
               console.log(data, 'success data');
             },

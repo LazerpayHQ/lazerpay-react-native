@@ -32,9 +32,9 @@ const InitiatePayment = () => {
         {...{
           publicKey: 'PUBLIC_KEY',
           customerName: 'CUSTOMERS FULL NAME',
-          billingEmail: 'CUSTOMER EMAIL',
+          customerEmail: 'CUSTOMER EMAIL',
           currency: 'CURRENCY', // USD, NGN, AED, GBP, EUR
-          amount: 10, // amount as a number
+          amount: '10', // amount as a number or string
           onSuccess: (response) => {
             // handle response here
           },
@@ -58,7 +58,7 @@ const InitiatePayment = () => {
 
 - [`publicKey`](#publicKey)
 - [`customerName`](#customerName)
-- [`billingEmail`](#billingEmail)
+- [`customerEmail`](#customerEmail)
 - [`currency`](#currency)
 - [`amount`](#amount)
 - [`onSuccess`](#onSuccess)
@@ -87,8 +87,13 @@ The name of the fiat currency the merchant accepts
 
 ### <a name="amount"></a> `amount`
 
-**number: Required**
+**number | string: Required**
 The amount you want to charge the user in `currency`
+
+### <a name="businessLogo"></a> `businessLogo`
+
+**string: Required**
+The logo of your business as url in string
 
 ### <a name="onSuccess"></a> `onSuccess`
 

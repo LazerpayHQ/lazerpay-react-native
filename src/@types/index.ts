@@ -7,9 +7,10 @@ export type SDKWrapperProps = {
 export type PaymentProps = {
   publicKey: string;
   customerName?: string;
-  billingEmail: string;
+  customerEmail: string;
   currency: string;
-  amount: number;
+  amount: number | string;
+  businessLogo?: string;
   onError: (event: string) => void;
   onSuccess: (event: string) => void;
   onClose: () => void;
