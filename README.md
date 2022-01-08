@@ -146,7 +146,7 @@ The Transaction JSON returned for successful events
 
 ## Configuration Options for Making Payments
 
-### <a name="openSDK"></a> `openSendSDK`
+### <a name="openSDK"></a> `openSDK`
 
 **boolean: Required**
 
