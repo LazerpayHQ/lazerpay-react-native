@@ -93,7 +93,7 @@ const LazerPay = (props: PaymentProps) => {
                         const resp = {event:'cancelled'};
                         window.ReactNativeWebView.postMessage(JSON.stringify(resp))
                     },
-                    callback: (data)=>{
+                    onSuccess: (data)=>{
                         const resp = {event:'successful', data};
                         window.ReactNativeWebView.postMessage(JSON.stringify(resp))
                     },
