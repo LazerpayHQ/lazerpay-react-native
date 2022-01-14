@@ -13,7 +13,7 @@ Lazerpay SDK allows you accept payments easily in your react-native application
 ## Installation
 
 ```sh
-npm install lazerpay-react-native
+yarn add lazerpay-react-native
 ```
 
 Also install `react-native-webview` because it's a dependency for this package. Here's a [link](https://github.com/react-native-webview/react-native-webview) to their docs.
