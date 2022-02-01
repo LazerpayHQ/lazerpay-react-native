@@ -1,6 +1,6 @@
 {
   "name": "lazerpay-react-native",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Lazerpay Official react-native sdk",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
