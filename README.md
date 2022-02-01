@@ -39,7 +39,7 @@ const InitiatePayment = () => {
           customerEmail: 'CUSTOMER EMAIL',
           currency: 'CURRENCY', // USD, NGN, AED, GBP, EUR
           amount: '10', // amount as a number or string
-          userReference: '9192nsjisoi',
+          reference: '9192nsjisoi',
           onSuccess: (response) => {
             // handle response here
           },
@@ -65,7 +65,7 @@ const InitiatePayment = () => {
 - [`customerName`](#customerName)
 - [`customerEmail`](#customerEmail)
 - [`currency`](#currency)
-- [`userReference`](#userReference)
+- [`reference`](#reference)
 - [`amount`](#amount)
 - [`onSuccess`](#onSuccess)
 - [`onError`](#onError)
@@ -96,7 +96,7 @@ The name of the fiat currency the merchant accepts
 **number | string: Required**
 The amount you want to charge the user in `currency`
 
-### <a name="userReference"></a> `userReference`
+### <a name="reference"></a> `reference`
 
 **string | string: Optional**
 a unique string used to identifier the user

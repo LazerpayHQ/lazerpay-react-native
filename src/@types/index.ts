@@ -11,7 +11,7 @@ export type PaymentProps = {
   currency: string;
   amount: number | string;
   businessLogo?: string;
-  userReference?: string;
+  reference?: string;
   onError: (event: string) => void;
   onSuccess: (event: string) => void;
   onClose: () => void;

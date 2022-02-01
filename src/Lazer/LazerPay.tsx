@@ -16,7 +16,7 @@ const LazerPay = (props: PaymentProps) => {
     customerEmail,
     currency,
     businessLogo,
-    userReference,
+    reference,
     amount,
     onError,
     onSuccess,
@@ -60,7 +60,7 @@ const LazerPay = (props: PaymentProps) => {
     currency,
     amount,
     businessLogo,
-    userReference,
+    reference,
     onError,
     onSuccess,
     onClose,
@@ -90,7 +90,7 @@ const LazerPay = (props: PaymentProps) => {
                     amount: '${amount}',
                     key: '${publicKey}',
                     logo: '${businessLogo || ''}',
-                    userReference: '${userReference || ''}',
+                    userReference: '${reference || ''}',
                     currency: '${currency || 'USD'}',
                     onClose: (data)=>{
                         const resp = {event:'cancelled'};
