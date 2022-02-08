@@ -40,6 +40,7 @@ const InitiatePayment = () => {
           currency: 'CURRENCY', // USD, NGN, AED, GBP, EUR
           amount: '10', // amount as a number or string
           reference: '9192nsjisoi',
+          acceptPartialPayment: true,
           onSuccess: (response) => {
             // handle response here
           },
@@ -98,8 +99,13 @@ The amount you want to charge the user in `currency`
 
 ### <a name="reference"></a> `reference`
 
-**string | string: Optional**
+**string : Optional**
 a unique string used to identifier the user
+
+### <a name="acceptPartialPayment"></a> `acceptPartialPayment`
+
+**boolean : Optional**
+This boolean is used to enforce complete payments
 
 ### <a name="businessLogo"></a> `businessLogo`
 
@@ -129,6 +135,7 @@ The Transaction JSON returned for successful events
 {
   "event": "successful",
   "data": {
+    "acceptPartialPayment": true
     "id": "12896b32-0d7d-4744-bc15-5960af40d519",
     "reference": "aa6KlHy88D",
     "senderAddress": "0x0B4d358D349809037003F96A3593ff9015E89efA",
