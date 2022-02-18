@@ -76,7 +76,7 @@ const LazerPay = (props: PaymentProps) => {
           <meta http-equiv="X-UA-Compatible" content="ie=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link
-            href="https://cdn.jsdelivr.net/gh/LazerPay-Finance/Sohne-font@main/Sohne-Buch.woff"
+            href="https://cdn.jsdelivr.net/gh/LazerPay-Finance/checkout-build@main/checkout%401.0.1/dist/index.js"
             rel="stylesheet"
             />
           <title>Lazerpay Checkout</title>
