@@ -60,6 +60,9 @@ const InitiatePayment = () => {
 };
 ```
 
+### NOTE
+`reference` has to be updated after any successful partial payment to enable re-initialization.
+
 ## Configuration Options
 
 - [`publicKey`](#publicKey)
