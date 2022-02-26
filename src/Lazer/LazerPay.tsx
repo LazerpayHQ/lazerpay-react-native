@@ -82,7 +82,7 @@ const LazerPay = (props: PaymentProps) => {
           <title>Lazerpay Checkout</title>
         </head>
           <body onload="payWithLazerpay()" style="background-color:#fff;height:100vh">
-            <script src="https://cdn.jsdelivr.net/gh/LazerPay-Finance/checkout-build@main/checkout%401.0.1/dist/index.js"></script>
+            <script src="https://cdn.jsdelivr.net/gh/LazerPay-Finance/checkout-build@main/checkout%401.0.1/dist/index.min.js"></script>
             <script type="text/javascript">
               window.onload = payWithLazerpay;
               function payWithLazerpay(){
