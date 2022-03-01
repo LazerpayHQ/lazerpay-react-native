@@ -1,2 +1,2 @@
-import LazerPay from './Lazer/LazerPay';
-export { LazerPay };
+import Lazerpay from './lazerpay';
+export { Lazerpay };

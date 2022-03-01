@@ -4,11 +4,13 @@ export type SDKWrapperProps = {
   children: any;
 };
 
+export type Currency = 'NGN' | 'USD' | 'AED' | 'GBP' | 'EUR';
+
 export type PaymentProps = {
   publicKey: string;
   customerName?: string;
   customerEmail: string;
-  currency: string;
+  currency: Currency;
   amount: number | string;
   businessLogo?: string;
   reference?: string;

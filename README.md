@@ -2,19 +2,20 @@
 
 Lazerpay SDK allows you accept payments easily in your react-native application
 
-<img src="https://raw.githubusercontent.com/njokuScript/screenshots/master/step-1.png" alt='screenshot of SDK' width='250px' />
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
-<img src="https://raw.githubusercontent.com/njokuScript/screenshots/master/step-2.png" alt='screenshot of SDK' width='250px' />
-
-<img src="https://raw.githubusercontent.com/njokuScript/screenshots/master/step3.png" alt='screenshot of SDK' width='250px' />
-
-<img src="https://raw.githubusercontent.com/njokuScript/screenshots/master/final.png" alt='screenshot of SDK' width='250px' />
+The package allows you accept payment using Lazerpay, install, add keys and use. No stress :)
 
 ## Installation
 
-```sh
-yarn add lazerpay-react-native
-```
+`yarn add react-native-webview`
+
+for iOS: `cd iOS && pod install && cd ..`
+
+for expo applications run;
+
+`expo install react-native-webview`
 
 Also install `react-native-webview` because it's a dependency for this package. Here's a [link](https://github.com/react-native-webview/react-native-webview) to their docs.
 
@@ -22,17 +23,20 @@ Also install `react-native-webview` because it's a dependency for this package. 
 yarn add react-native-webview
 ```
 
+and that's it, you're all good to go!
+
+<img src="https://raw.githubusercontent.com/njokuScript/screenshots/master/step-1.png" alt='screenshot of SDK' width='306px' />
 ## Usage
 
 ```js
-import { LazerPay } from 'lazerpay-react-native';
+import { Lazerpay } from 'lazerpay-react-native';
 
-const InitiatePayment = () => {
+const Pay = () => {
   const [openSDK, setopenSDK] = useState(false);
 
   return (
     <View>
-      <LazerPay
+      <Lazerpay
         {...{
           publicKey: 'PUBLIC_KEY',
           customerName: 'CUSTOMERS FULL NAME',
@@ -61,6 +65,7 @@ const InitiatePayment = () => {
 ```
 
 ### NOTE
+
 `reference` has to be updated after any successful partial payment to enable re-initialization.
 
 ## Configuration Options
