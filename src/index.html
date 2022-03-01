@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link
+            href="https://cdn.jsdelivr.net/gh/LazerPay-Finance/Sohne-font@main/Sohne-Buch.woff"
+            rel="stylesheet"
+            />
+          <title>Lazerpay Checkout</title>
+        </head>
+          <body style="background-color:#fff;height:100vh">
+            <script src="https://cdn.jsdelivr.net/gh/LazerPay-Finance/checkout-build@main/checkout%401.0.1/dist/index.min.js"></script>
+            <script type="text/javascript">
+                let wind = null
+                getMobileOS()
+                function getMobileOS() {
+                    var userAgent = navigator.userAgent.toLowerCase();
+                    var Android = userAgent.indexOf("android") > -1;
+                      
+                    if(Android) {
+                        wind = document
+                    }else{
+                        wind = window
+                    }
+           
+                }
+              
+              function payWithLazerpay(customerName, customerEmail, currency, amount, acceptPartialPayment,publicKey, businessLogo, reference){
+                LazerCheckout({
+                    name: customerName,
+                    email: customerEmail,
+                    amount: amount,
+                    key: publicKey,
+                    logo: businessLogo || '',
+                    reference: reference || '',
+                    acceptPartialPayment: acceptPartialPayment,
+                    currency: currency || 'USD',
+                    onClose: (data)=>{
+                        const resp = {event:'cancelled'};
+                        window.ReactNativeWebView.postMessage(JSON.stringify(resp))
+                    },
+                    onSuccess: (data)=>{
+                        const resp = {event:'successful', data};
+                        window.ReactNativeWebView.postMessage(JSON.stringify(resp))
+                    },
+                    onError: (data)=>{
+                        const resp = {event:'error'};
+                        window.ReactNativeWebView.postMessage(JSON.stringify(resp))
+                    }
+                })
+                }
+
+            </script>
+            <script>
+           
+                wind.addEventListener("message", function(data) {                  
+                    var props = JSON.parse(data.data);
+                    
+                    payWithLazerpay(props.customerName, props.customerEmail, props.currency, props.amount, 
+                    props.acceptPartialPayment,props.publicKey, props.businessLogo, props.reference);
+                });
+    
+            </script>
+          </body>
+      </html>
