@@ -1,21 +1,19 @@
 # Lazerpay Official react-native sdk
 
-Lazerpay SDK allows you accept payments easily in your react-native application
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
 The package allows you accept payment using Lazerpay, install, add keys and use. No stress :)
 
 ## Installation
 
-`yarn add react-native-webview`
+`yarn add lazerpay-react-native`
 
 for iOS: `cd iOS && pod install && cd ..`
 
 for expo applications run;
 
-`expo install react-native-webview`
+`expo install lazerpay-react-native`
 
 Also install `react-native-webview` because it's a dependency for this package. Here's a [link](https://github.com/react-native-webview/react-native-webview) to their docs.
 
