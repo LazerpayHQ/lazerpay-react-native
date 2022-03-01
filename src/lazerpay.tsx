@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { isRequired } from './helpers';
 import type { PaymentProps } from './@types';
 import SDKWrapper from './components/SDKWrapper';
@@ -9,6 +9,7 @@ import { Text } from 'react-native';
 
 const Lazerpay = (props: PaymentProps) => {
   const [checkPropsValue, setCheckProps] = useState(false);
+  const webviewRef: any = useRef();
 
   const {
     publicKey,
@@ -68,51 +69,6 @@ const Lazerpay = (props: PaymentProps) => {
     onClose,
     openSDK,
   ]);
-  const Lazerpaycontent = `
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="ie=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link
-            href="https://cdn.jsdelivr.net/gh/LazerPay-Finance/Sohne-font@main/Sohne-Buch.woff"
-            rel="stylesheet"
-            />
-          <title>Lazerpay Checkout</title>
-        </head>
-          <body onload="payWithLazerpay()" style="background-color:#fff;height:100vh">
-            <script src="https://cdn.jsdelivr.net/gh/LazerPay-Finance/checkout-build@main/checkout%401.0.1/dist/index.min.js"></script>
-            <script type="text/javascript">
-              window.onload = payWithLazerpay;
-              function payWithLazerpay(){
-                LazerCheckout({
-                    name: '${customerName}',
-                    email: '${customerEmail}',
-                    amount: '${amount}',
-                    key: '${publicKey}',
-                    logo: '${businessLogo || ''}',
-                    reference: '${reference || ''}',
-                    acceptPartialPayment: '${acceptPartialPayment}'
-                    currency: '${currency || 'USD'}',
-                    onClose: (data)=>{
-                        const resp = {event:'cancelled'};
-                        window.ReactNativeWebView.postMessage(JSON.stringify(resp))
-                    },
-                    onSuccess: (data)=>{
-                        const resp = {event:'successful', data};
-                        window.ReactNativeWebView.postMessage(JSON.stringify(resp))
-                    },
-                    onError: (data)=>{
-                        const resp = {event:'error'};
-                        window.ReactNativeWebView.postMessage(JSON.stringify(resp))
-                    }
-                })
-                }
-            </script>
-          </body>
-      </html>
-      `;
 
   const messageReceived = ({ nativeEvent: { data } }: any) => {
     const response = JSON.parse(data);
@@ -129,12 +85,30 @@ const Lazerpay = (props: PaymentProps) => {
         break;
     }
   };
+
+  const injectValues = () => {
+    webviewRef.current.postMessage(
+      JSON.stringify({
+        customerName,
+        customerEmail,
+        currency,
+        amount,
+        acceptPartialPayment,
+        publicKey,
+        businessLogo,
+        reference,
+      })
+    );
+  };
+
   return (
     <SDKWrapper visible={openSDK} onRequestClose={onClose}>
       {checkPropsValue ? (
         <WebView
-          source={{ html: Lazerpaycontent }}
+          ref={webviewRef}
+          source={{ uri: '<URL>' }}
           onMessage={messageReceived}
+          onLoadEnd={() => injectValues()}
           cacheEnabled={false}
           cacheMode={'LOAD_NO_CACHE'}
           startInLoadingState={true}
