@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { isRequired } from '../helpers';
 import type { PaymentProps } from '../@types';
 import SDKWrapper from '../components/SDKWrapper';
@@ -9,6 +9,7 @@ import { Text } from 'react-native';
 
 const LazerPay = (props: PaymentProps) => {
   const [checkPropsValue, setCheckProps] = useState(false);
+  const webviewRef: any = useRef();
 
   const {
     publicKey,
@@ -129,12 +130,22 @@ const LazerPay = (props: PaymentProps) => {
         break;
     }
   };
+
+  const injectValues = () => {
+    webviewRef.current.postMessage(JSON.stringify({
+      customerName, customerEmail, currency, amount, 
+      acceptPartialPayment,publicKey, businessLogo, reference
+    }));
+  }
+
   return (
     <SDKWrapper visible={openSDK} onRequestClose={onClose}>
       {checkPropsValue ? (
         <WebView
-          source={{ html: Lazerpaycontent }}
+          ref={webviewRef}
+          source={{ uri: '<URL>' }}
           onMessage={messageReceived}
+          onLoadEnd={() => injectValues()}
           cacheEnabled={false}
           cacheMode={'LOAD_NO_CACHE'}
           startInLoadingState={true}
