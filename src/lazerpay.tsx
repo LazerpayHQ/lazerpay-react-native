@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { isRequired } from '../helpers';
-import type { PaymentProps } from '../@types';
-import SDKWrapper from '../components/SDKWrapper';
+import { isRequired } from './helpers';
+import type { PaymentProps } from './@types';
+import SDKWrapper from './components/SDKWrapper';
 import { WebView } from 'react-native-webview';
-import { PAYMENT_CLOSE, PAYMENT_ERROR, PAYMENT_SUCCESS } from '../constants';
-import Loader from '../components/Loader';
+import { PAYMENT_CLOSE, PAYMENT_ERROR, PAYMENT_SUCCESS } from './constants';
+import Loader from './components/Loader';
 import { Text } from 'react-native';
 
-const LazerPay = (props: PaymentProps) => {
+const Lazerpay = (props: PaymentProps) => {
   const [checkPropsValue, setCheckProps] = useState(false);
 
   const {
@@ -147,4 +147,4 @@ const LazerPay = (props: PaymentProps) => {
   );
 };
 
-export default LazerPay;
+export default Lazerpay;
