@@ -7,7 +7,9 @@ The package allows you accept payment using Lazerpay, install, add keys and use.
 
 ## Installation
 
-`yarn add lazerpay-react-native`
+`yarn add lazerpay-react-native @react-native-clipboard/clipboard`
+
+This version requires `@react-native-clipboard/clipboard` to work
 
 for iOS: `cd iOS && pod install && cd ..`
 

@@ -3,9 +3,10 @@ import { isRequired } from './helpers';
 import type { PaymentProps } from './@types';
 import SDKWrapper from './components/SDKWrapper';
 import { WebView } from 'react-native-webview';
-import { PAYMENT_CLOSE, PAYMENT_ERROR, PAYMENT_SUCCESS } from './constants';
+import { COPIED, FETCHED, PAYMENT_CLOSE, PAYMENT_ERROR, PAYMENT_SUCCESS } from './constants';
 import Loader from './components/Loader';
 import { Text } from 'react-native';
+import Clipboard from '@react-native-clipboard/clipboard';
 
 const Lazerpay = (props: PaymentProps) => {
   const [checkPropsValue, setCheckProps] = useState(false);
@@ -70,8 +71,10 @@ const Lazerpay = (props: PaymentProps) => {
     openSDK,
   ]);
 
+  let addressResponse: any =  null
+
   const messageReceived = ({ nativeEvent: { data } }: any) => {
-    const response = JSON.parse(data);
+    const response: any = JSON.parse(data);
 
     switch (response.event) {
       case PAYMENT_CLOSE:
@@ -82,6 +85,14 @@ const Lazerpay = (props: PaymentProps) => {
         break;
       case PAYMENT_ERROR:
         onError(response);
+        break;
+
+      case COPIED:
+        Clipboard.setString(addressResponse.data.address)
+        break;
+
+      case FETCHED:
+        addressResponse = response.data
         break;
     }
   };
