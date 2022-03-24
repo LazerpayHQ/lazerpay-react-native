@@ -141,32 +141,36 @@ The Transaction JSON returned for successful events
 
 ```ts
 {
-  "event": "successful",
   "data": {
-    "acceptPartialPayment": true
-    "id": "12896b32-0d7d-4744-bc15-5960af40d519",
-    "reference": "aa6KlHy88D",
-    "senderAddress": "0x0B4d358D349809037003F96A3593ff9015E89efA",
-    "recipientAddress": "0x785F44E779cfEeDeBf7aA7CFde19DaA3312fd19e",
-    "actualAmount": 10,
-    "amountPaid": 10,
-    "fiatAmount": 10,
+    "acceptPartialPayment": false,
+    "actualAmount": 2,
+    "amountPaid": 2,
+    "amountPaidFiat": 1.9988,
+    "amountReceived": 2.02,
+    "amountReceivedFiat": 2.018788,
+    "blockNumber": 16348693,
+    "blockchain": "Binance Smart Chain",
     "coin": "BUSD",
     "currency": "USD",
-    "hash": "0x3332d7b046d53e90dc0337c715252f210386c2a471c5025c953a0b1d9bc90593",
-    "blockNumber": 14160827,
-    "type": "received",
-    "status": "confirmed",
-    "network": "mainnet",
-    "blockchain": "Binance Smart Chain",
     "customer": {
-      "id": "b847dbbd-e5a4-4afc-ba26-b292707dc391",
-      "customerName": "Njoku Emmanuel",
       "customerEmail": "kalunjoku123@gmail.com",
+      "customerName": "Njoku Emmanuel",
       "customerPhone": null,
+      "id": "b847dbbd-e5a4-4afc-ba26-b292707dc391",
       "network": "mainnet"
-    }
-  }
+    },
+    "feeInCrypto": 0.02,
+    "fiatAmount": 2,
+    "hash": "0x1df0c16f2ee61136c682e92b13ecc38be0f62c100bb9941c92cdac1dc9ab5155",
+    "id": "221a0296-16e6-47dd-b9de-b16dc1270e1a",
+    "network": "mainnet",
+    "recipientAddress": "0xc5Ea2AD69FeA1442B721E76e39384E3BB9B16694",
+    "reference": "3rYZeRbmIe",
+    "senderAddress": "0x0B4d358D349809037003F96A3593ff9015E89efA",
+    "status": "confirmed",
+    "type": "received"
+  },
+  "event": "successful"
 }
 ```
 
