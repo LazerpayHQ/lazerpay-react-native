@@ -13,6 +13,7 @@ import {
 import Loader from './components/Loader';
 import Clipboard from '@react-native-clipboard/clipboard';
 import ErrorFallback from './components/Error';
+import { Text } from 'react-native';
 
 const Lazerpay = (props: PaymentProps) => {
   const [checkPropsValue, setCheckProps] = useState(false);
@@ -135,7 +136,8 @@ const Lazerpay = (props: PaymentProps) => {
           renderLoading={() => <Loader />}
         />
       ) : (
-        <ErrorFallback onClose={onClose} error />
+        // <ErrorFallback onClose={onClose} error />
+        <Text>Something went wrong</Text>
       )}
     </SDKWrapper>
   );
