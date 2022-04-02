@@ -61,6 +61,7 @@ const Lazerpay = (props: PaymentProps) => {
     };
 
     if (openSDK) {
+      console.log(checkPropsValue);
       checkProps();
     }
   }, [
