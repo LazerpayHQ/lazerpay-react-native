@@ -3,10 +3,16 @@ import { isRequired } from './helpers';
 import type { PaymentProps } from './@types';
 import SDKWrapper from './components/SDKWrapper';
 import { WebView } from 'react-native-webview';
-import { COPIED, FETCHED, PAYMENT_CLOSE, PAYMENT_ERROR, PAYMENT_SUCCESS } from './constants';
+import {
+  COPIED,
+  FETCHED,
+  PAYMENT_CLOSE,
+  PAYMENT_ERROR,
+  PAYMENT_SUCCESS,
+} from './constants';
 import Loader from './components/Loader';
-import { Text } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
+import ErrorFallback from './components/Error';
 
 const Lazerpay = (props: PaymentProps) => {
   const [checkPropsValue, setCheckProps] = useState(false);
@@ -46,6 +52,7 @@ const Lazerpay = (props: PaymentProps) => {
         );
         !validAmount && console.error('Enter a valid amount');
         isRequired('publicKey', !!publicKey);
+        isRequired('Enter an amount', !!amount);
         isRequired('Enter a Valid Currency', !!currency);
         isRequired('onClose callback', onClose !== undefined);
         isRequired('onError callback', onError !== undefined);
@@ -71,7 +78,7 @@ const Lazerpay = (props: PaymentProps) => {
     openSDK,
   ]);
 
-  let addressResponse: any =  null
+  let addressResponse: any = null;
 
   const messageReceived = ({ nativeEvent: { data } }: any) => {
     const response: any = JSON.parse(data);
@@ -88,11 +95,11 @@ const Lazerpay = (props: PaymentProps) => {
         break;
 
       case COPIED:
-        Clipboard.setString(addressResponse.data.address)
+        Clipboard.setString(addressResponse.data.address);
         break;
 
       case FETCHED:
-        addressResponse = response.data
+        addressResponse = response.data;
         break;
     }
   };
@@ -114,22 +121,19 @@ const Lazerpay = (props: PaymentProps) => {
 
   return (
     <SDKWrapper visible={openSDK} onRequestClose={onClose}>
-      {checkPropsValue ? (
-        <WebView
-          ref={webviewRef}
-          source={{
-            uri: 'https://lazerpay-react-native-59mryqtbi-lazerpay.vercel.app',
-          }}
-          onMessage={messageReceived}
-          onLoadEnd={() => injectValues()}
-          cacheEnabled={false}
-          cacheMode={'LOAD_NO_CACHE'}
-          startInLoadingState={true}
-          renderLoading={() => <Loader />}
-        />
-      ) : (
-        <Text>'Something Went Wrong. Try again'</Text>
-      )}
+      <WebView
+        ref={webviewRef}
+        source={{
+          uri: 'https://lazerpay-react-native-59mryqtbi-lazerpay.vercel.app',
+        }}
+        onMessage={messageReceived}
+        onLoadEnd={() => injectValues()}
+        renderError={(error) => <ErrorFallback {...{ onClose, error }} />}
+        cacheEnabled={false}
+        cacheMode={'LOAD_NO_CACHE'}
+        startInLoadingState={true}
+        renderLoading={() => <Loader />}
+      />
     </SDKWrapper>
   );
 };
