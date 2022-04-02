@@ -12,7 +12,7 @@ import {
 } from './constants';
 import Loader from './components/Loader';
 import Clipboard from '@react-native-clipboard/clipboard';
-import ErrorFallback from './components/Error';
+//import ErrorFallback from './components/Error';
 import { Text } from 'react-native';
 
 const Lazerpay = (props: PaymentProps) => {
