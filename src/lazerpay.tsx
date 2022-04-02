@@ -11,9 +11,8 @@ import {
   PAYMENT_SUCCESS,
 } from './constants';
 import Loader from './components/Loader';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
-//import ErrorFallback from './components/Error';
-import { Text } from 'react-native';
 
 const Lazerpay = (props: PaymentProps) => {
   const [checkPropsValue, setCheckProps] = useState(false);
@@ -136,11 +135,64 @@ const Lazerpay = (props: PaymentProps) => {
           renderLoading={() => <Loader />}
         />
       ) : (
-        // <ErrorFallback onClose={onClose} error />
-        <Text>Something went wrong</Text>
+        <>
+          <View style={styles.container}>
+            <TouchableOpacity
+              style={{
+                padding: 20,
+                marginRight: -20,
+                position: 'absolute',
+                alignItems: 'flex-end',
+                alignSelf: 'flex-end',
+              }}
+              onPress={onClose}
+            >
+              <Image
+                source={require('./assets/close.png')}
+                style={styles.closeImg}
+              />
+            </TouchableOpacity>
+            <View style={styles.imgCont}>
+              <Image
+                source={require('./assets/warning.png')}
+                style={styles.img}
+                resizeMode="contain"
+              />
+            </View>
+            <Text style={styles.text}>Something went wrong. Try again</Text>
+          </View>
+        </>
       )}
     </SDKWrapper>
   );
 };
 
 export default Lazerpay;
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 16,
+    color: '#727EA3',
+    fontWeight: '400',
+    marginTop: 10,
+  },
+  closeImg: {
+    width: 32,
+    height: 32,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+    height: '100%',
+    width: '100%',
+    alignItems: 'center',
+    position: 'absolute',
+  },
+  img: {
+    width: 80,
+    height: 80,
+  },
+  imgCont: {
+    marginTop: 100,
+    alignItems: 'center',
+  },
+});
