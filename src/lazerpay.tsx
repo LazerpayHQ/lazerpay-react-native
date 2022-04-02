@@ -61,7 +61,6 @@ const Lazerpay = (props: PaymentProps) => {
     };
 
     if (openSDK) {
-      console.log(checkPropsValue);
       checkProps();
     }
   }, [
@@ -122,19 +121,22 @@ const Lazerpay = (props: PaymentProps) => {
 
   return (
     <SDKWrapper visible={openSDK} onRequestClose={onClose}>
-      <WebView
-        ref={webviewRef}
-        source={{
-          uri: 'https://lazerpay-react-native-59mryqtbi-lazerpay.vercel.app',
-        }}
-        onMessage={messageReceived}
-        onLoadEnd={() => injectValues()}
-        renderError={(error) => <ErrorFallback {...{ onClose, error }} />}
-        cacheEnabled={false}
-        cacheMode={'LOAD_NO_CACHE'}
-        startInLoadingState={true}
-        renderLoading={() => <Loader />}
-      />
+      {checkPropsValue ? (
+        <WebView
+          ref={webviewRef}
+          source={{
+            uri: 'https://lazerpay-react-native-59mryqtbi-lazerpay.vercel.app',
+          }}
+          onMessage={messageReceived}
+          onLoadEnd={() => injectValues()}
+          cacheEnabled={false}
+          cacheMode={'LOAD_NO_CACHE'}
+          startInLoadingState={true}
+          renderLoading={() => <Loader />}
+        />
+      ) : (
+        <ErrorFallback onClose={onClose} error />
+      )}
     </SDKWrapper>
   );
 };
