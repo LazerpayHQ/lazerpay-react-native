@@ -125,7 +125,7 @@ const Lazerpay = (props: PaymentProps) => {
         <WebView
           ref={webviewRef}
           source={{
-            uri: 'https://lazerpay-react-native-59mryqtbi-lazerpay.vercel.app',
+            uri: 'https://lazerpay-react-native.vercel.app',
           }}
           onMessage={messageReceived}
           onLoadEnd={() => injectValues()}
