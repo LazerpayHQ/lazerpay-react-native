@@ -34,6 +34,11 @@ import { Lazerpay } from 'lazerpay-react-native';
 const Pay = () => {
   const [openSDK, setopenSDK] = useState(false);
 
+  const metadata = {
+    'product name': 'Burger and Pepsi',
+    'Product Owner': 'Jeremiah Daniel',
+  };
+
   return (
     <View>
       <Lazerpay
@@ -45,6 +50,7 @@ const Pay = () => {
           amount: '10', // amount as a number or string
           reference: '9192nsjisoi',
           acceptPartialPayment: true,
+          metadata, // metadata (optional) is an object of information you wish to pass
           onSuccess: (response) => {
             // handle response here
           },
@@ -76,6 +82,7 @@ const Pay = () => {
 - [`currency`](#currency)
 - [`reference`](#reference)
 - [`amount`](#amount)
+- [`metadata`](#metadata)
 - [`onSuccess`](#onSuccess)
 - [`onError`](#onError)
 - [`onClose`](#onClose)
@@ -104,6 +111,11 @@ The name of the fiat currency the merchant accepts
 
 **number | string: Required**
 The amount you want to charge the user in `currency`
+
+### <a name="metadata"></a> `metadata`
+
+**object : Optional**
+This contains any additional information you want to pass with this transaction
 
 ### <a name="reference"></a> `reference`
 
