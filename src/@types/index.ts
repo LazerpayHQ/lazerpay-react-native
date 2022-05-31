@@ -1,3 +1,7 @@
+type MetaObject = {
+  [name: string]: string | number;
+};
+
 export type SDKWrapperProps = {
   visible: boolean;
   onRequestClose: () => void;
@@ -15,6 +19,7 @@ export type PaymentProps = {
   businessLogo?: string;
   reference?: string;
   acceptPartialPayment?: boolean;
+  metadata?: MetaObject;
   onError: (event: string) => void;
   onSuccess: (event: string) => void;
   onClose: () => void;

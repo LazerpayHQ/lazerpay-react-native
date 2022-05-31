@@ -27,6 +27,7 @@ const Lazerpay = (props: PaymentProps) => {
     reference,
     acceptPartialPayment,
     amount,
+    metadata,
     onError,
     onSuccess,
     onClose,
@@ -72,6 +73,7 @@ const Lazerpay = (props: PaymentProps) => {
     businessLogo,
     reference,
     acceptPartialPayment,
+    metadata,
     onError,
     onSuccess,
     onClose,
@@ -115,6 +117,7 @@ const Lazerpay = (props: PaymentProps) => {
         publicKey,
         businessLogo,
         reference,
+        metadata: metadata || {},
       })
     );
   };
