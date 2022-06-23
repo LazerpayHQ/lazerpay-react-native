@@ -14,6 +14,16 @@ import Loader from './components/Loader';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
 
+/*
+hey Njoku 👋🏾
+I'd love to connect you to the amazing team at Harlem Capital (https://harlem.capital/) where I'm helping to scout the best startups in the world for investment (https://harlem.capital/internship/).
+They are some of the most active investors in crypto and fintech and are looking to invest further into the space, particularly within Africa.
+I've been following LazerPay for a while and I've been really impressed by your story, the product, and all your progress so far.
+Would love to get an introductory call and help connect you if you're looking for investment in the future. Book a time at this link and I'd love to meet you and learn more about LazerPay: https://calendly.com/helomberhane/20-minute-meeting
+If you're a bit busy at the moment feel free to forward any pitch deck or investment memo to my email: helomberhane@gmail.com
+Thanks! - Helom
+*/
+
 const Lazerpay = (props: PaymentProps) => {
   const [checkPropsValue, setCheckProps] = useState(false);
   const webviewRef: any = useRef();
